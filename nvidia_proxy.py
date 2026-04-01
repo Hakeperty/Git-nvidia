@@ -1,4 +1,5 @@
 import json
+import os
 import httpx
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse, JSONResponse
@@ -7,7 +8,7 @@ import uvicorn
 app = FastAPI()
 
 NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
-NVIDIA_API_KEY  = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+NVIDIA_API_KEY  = os.environ.get("NVIDIA_API_KEY", "")
 NVIDIA_MODEL    = "qwen/qwen3.5-122b-a10b"
 
 
